@@ -1,4 +1,4 @@
-regex==2.2.1
+regex
 pandas
 numpy
 sklearn
