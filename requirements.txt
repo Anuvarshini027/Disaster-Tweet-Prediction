@@ -3,9 +3,6 @@ pandas
 numpy
 sklearn
 nltk
-strings
 matplotlib
-seaborn
 streamlit
-urllib3
-gunicorn
+
