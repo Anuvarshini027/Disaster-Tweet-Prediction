@@ -3,7 +3,7 @@ pandas
 numpy
 sklearn
 nltk
-string
+strings
 matplotlib
 seaborn
 streamlit
