@@ -3,6 +3,7 @@ pandas
 numpy
 sklearn
 nltk
+wordcloud
 matplotlib
 streamlit
 
