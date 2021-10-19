@@ -174,8 +174,7 @@ if file1 and file2 is not None:
     st.subheader("Enter the range of tweets to be predicted")
     st.write("Default of a and b is set to 80 and 100 ")
     a = st.slider('From ', min_value=0, max_value=pred_df.shape[0], value=80)
-    n=a+1
-    b = st.slider('To ', min_value=n, max_value=pred_df.shape[0], value=100)
+    b = st.slider('To ', min_value=0, max_value=pred_df.shape[0], value=100)
     if b<a or b==a:
         st.warning("Enter b greater than a")
     else:
