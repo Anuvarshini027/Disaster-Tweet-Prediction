@@ -1,6 +1,6 @@
 # Disaster-Tweet-Prediction
 
-This app has been deployed on streamlit. To view the app check the link below
+This app has been deployed on streamlit. To view the app check the link below<br>
 https://share.streamlit.io/anuvarshini027/disaster-tweet-prediction/main/App_disaster_tweet_prediction.py
 
 
