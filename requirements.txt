@@ -1,0 +1,11 @@
+pandas
+numpy
+sklearn
+nltk
+re
+string
+matplotlib
+seaborn
+streamlit
+urllib3
+gunicorn
