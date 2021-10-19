@@ -28,8 +28,6 @@ warnings.filterwarnings('ignore')
 import streamlit as st
 
 
-# In[ ]:
-
 
 st.title('DISASTER TWEET PREDICTION USING NLP')
 st.subheader('Upload the Training and Testing Dataset: (.csv)')
@@ -46,7 +44,7 @@ with col2:
 
 file1 = st.file_uploader('Training Dataset')
 file2 = st.file_uploader('Testing Dataset')
-if file1,file2 is not None:
+if file1 and file2 is not None:
     train = pd.read_csv(file1)
     test=pd.read_csv(file2)
     st.header('**DISASTER TWEETS PREDICTION**')
@@ -63,7 +61,7 @@ if file1,file2 is not None:
     vctrain=train["target"].value_counts()
     st.subheader("Labels distribution")
     st.bar_chart(vctrain)
-    st.write(vctrain.to_frame)
+    #st.write(vctrain.to_frame)
     
     ## Going deep into disaster Tweets
     st.subheader("Data Pre-Processing")
@@ -99,7 +97,9 @@ if file1,file2 is not None:
     test.text=test.text.apply(lambda x:re.sub('\w*\d\w*', '', x) )
     
     #After Data Cleaning
+    st.write("Training Data:")
     st.write(train.text.head())
+    st.write("Testing Data")
     st.write(test.text.head())
     
     disaster_tweets = train[train['target']==1]['text']
@@ -128,10 +128,12 @@ if file1,file2 is not None:
     test.text=test.text.apply(lambda x:token.tokenize(x))
     #view
     st.subheader("After tokenizing")
+    st.write("Training Data:")
     st.write(train.text.head())
+    st.write("Testing Data:")
     st.write(test.text.head())
     
-    nltk.download('stopwords')
+    #nltk.download('stopwords')
     #removing stop words
     train.text=train.text.apply(lambda x:[w for w in x if w not in stopwords.words('english')])
     test.text=test.text.apply(lambda x:[w for w in x if w not in stopwords.words('english')])
@@ -168,11 +170,18 @@ if file1,file2 is not None:
     pred=NB_Vec.predict(test_vectors_count)
     pred_df=pd.DataFrame(pred,columns=['target'])   
     pred_df["Tweet"]=test1['text']
+    pred_df["Location"]=test1['location']
     
-    a = st.slider('From ', min_value=0, max_value=pred_df.shape[0], value=1)
-    b = st.slider('To ', min_value=a+1, max_value=pred_df.shape[0], value=15)
-    st.subheader("After Prediction: ")
-    st.write(pred_df.iloc[a:b,:])
+    st.subheader("Enter the range of tweets to be predicted")
+    st.write("Default of a and b is set to 80 and 100 ")
+    a = st.slider('From ', min_value=0, max_value=pred_df.shape[0], value=80)
+    n=a+1
+    b = st.slider('To ', min_value=n, max_value=pred_df.shape[0], value=100)
+    if b<a or b==a:
+        st.warning("Enter b greater than a")
+    else:
+        st.subheader("After Prediction: ")
+        st.write(pred_df.iloc[a:b,:])
     
     if(st.button("FINISH")):
         st.info("Thank You for your Patience!")
