@@ -18,7 +18,6 @@ from sklearn.metrics import f1_score
 
 ## Visualization library
 import matplotlib.pyplot as plt
-import seaborn as sns
 from wordcloud import WordCloud
 
 ## Ignoring Warning during trainings 
@@ -133,7 +132,7 @@ if file1 and file2 is not None:
     st.write("Testing Data:")
     st.write(test.text.head())
     
-    #nltk.download('stopwords')
+    nltk.download('stopwords')
     #removing stop words
     train.text=train.text.apply(lambda x:[w for w in x if w not in stopwords.words('english')])
     test.text=test.text.apply(lambda x:[w for w in x if w not in stopwords.words('english')])
