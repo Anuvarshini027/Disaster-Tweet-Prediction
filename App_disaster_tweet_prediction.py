@@ -1,8 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[3]:
-
 
 ## All purpose library
 import pandas as pd
@@ -39,7 +34,7 @@ import streamlit as st
 st.title('DISASTER TWEET PREDICTION USING NLP')
 st.subheader('Upload the Training and Testing Dataset: (.csv)')
 # creating a side bar 
-st.sidebar.info("Created By : Anuvarshini S P")
+st.sidebar.info("Created By : Team 18")
 # Adding an image to the side bar 
 st.sidebar.subheader("Contact Information : ")
 col1, mid, col2 = st.sidebar.columns([1,1,20])
